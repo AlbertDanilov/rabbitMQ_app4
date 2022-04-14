@@ -18,7 +18,27 @@ namespace rabbitMQ_app4
                 int timeToSleep = new Random().Next(1000, 3000);
                 Thread.Sleep(timeToSleep);
 
-                var factory = new ConnectionFactory() { HostName = "localhost" };
+                //ConnectionFactory.DefaultAddressFamily = System.Net.Sockets.AddressFamily.InterNetwork;
+
+                //var factory = new ConnectionFactory()
+                //{   
+                //    HostName = "192.168.0.25",
+                //    UserName = "Администратор",
+                //    Password = "P@ssw0rd",
+                //    VirtualHost = "/",
+                //    Port = 15672
+                //};
+
+                var factory = new ConnectionFactory()
+                {
+                    HostName = "192.168.0.25",
+                    UserName = "artisUser",
+                    Password = "250595",
+                    VirtualHost = "/",
+                    Port = 5672
+                };
+
+
                 using (var connection = factory.CreateConnection())
                 using (var channel = connection.CreateModel())
                 {

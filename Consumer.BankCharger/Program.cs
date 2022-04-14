@@ -14,7 +14,17 @@ namespace Consumer.BankCharger
             Console.WriteLine("Consumer Bank is run");
             Console.WriteLine("");
 
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            //var factory = new ConnectionFactory() { HostName = "localhost" };
+
+            var factory = new ConnectionFactory()
+            {
+                HostName = "192.168.0.25",
+                UserName = "artisUser",
+                Password = "250595",
+                VirtualHost = "/",
+                Port = 5672
+            };
+
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
